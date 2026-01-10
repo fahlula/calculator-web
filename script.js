@@ -1,6 +1,17 @@
 // Array para armazenar histórico
-let historico = [];
+let historico = carregarHistorico();
 let acabouDeCalcular = false; // Flag para limpar display após calcular
+
+// Carrega histórico do localStorage
+function carregarHistorico() {
+    const salvo = localStorage.getItem('calculadoraHistorico');
+    return salvo ? JSON.parse(salvo) : [];
+}
+
+// Salva histórico no localStorage
+function salvarHistorico() {
+    localStorage.setItem('calculadoraHistorico', JSON.stringify(historico));
+}
 
 function adicionarNumero(numero) {
     const display = document.getElementById('display');
@@ -70,6 +81,9 @@ function calcular() {
         if (historico.length > 20) {
             historico.shift(); // Remove o primeiro (mais antigo)
         }
+        
+        // Salva no localStorage
+        salvarHistorico();
         
         // Atualiza lista se modal estiver aberto
         if (document.getElementById('modal-historico').classList.contains('ativo')) {
