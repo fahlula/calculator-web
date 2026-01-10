@@ -11,7 +11,7 @@ function adicionarNumero(numero) {
         }
         
         // Pega o número atual (após o último operador)
-        const partes = display.value.split(/[\+\-\*\/]/);
+        const partes = display.value.split(/[\+\-\*\/]/); // Divide por operadores
         const numeroAtual = partes[partes.length - 1];
         
         // Não permite ponto se número atual já tem ponto
@@ -65,3 +65,37 @@ function porcentagem(){
     }
 }
 
+document.addEventListener('keydown', function(event) {
+    const tecla = event.key;
+
+    if(tecla >= '0' && tecla <= '9') {
+        adicionarNumero(tecla);
+    }
+    // Operadores
+    else if (tecla === '+' || tecla === '-' || tecla === '*' || tecla === '/') {
+        adicionarOperacao(tecla);
+    } 
+    // Ponto decimal
+    else if (tecla === '.' || tecla === ',') {
+        adicionarNumero('.');
+    }
+
+    // Enter para calcular
+    else if (tecla === 'Enter') {
+        calcular();
+    }
+    // Backspace = apagar último caractere
+    else if (tecla === 'Backspace') {
+        backspace();
+    }
+    
+    // Escape ou Delete = limpar
+    else if (tecla === 'Escape' || tecla === 'Delete') {
+        limpar();
+    }
+    
+    // % = porcentagem
+    else if (tecla === '%') {
+        porcentagem();
+    }
+});
