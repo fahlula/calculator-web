@@ -41,7 +41,7 @@ body {
     border-radius: 5px;
     background-color: #4CAF50;
     color: white;
-    cursor: pointer;
+    cursor: pointer; /* transforma o cursor em mãozinha */
     transition: 0.3s;
 }
 
@@ -51,4 +51,14 @@ body {
 
 .botoes button:active {
     transform: scale(0.95);
+}
+
+/* Botão de operação com cor diferente */
+.botoes button.operacao {
+    background-color: #ff9800;
+}
+
+/* Botão de igual destacado */
+.botoes button.igual {
+    background-color: #2196F3;
 }
