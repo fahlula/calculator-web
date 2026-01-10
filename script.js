@@ -23,3 +23,8 @@ function limpar() {
     const display = document.getElementById('display');
     display.value = '';  // Define o valor como vazio
 } 
+
+function backspace() {
+    const display = document.getElementById('display');
+    display.value = display.value.slice(0, -1); // Remove o último caractere
+}
