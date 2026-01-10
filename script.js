@@ -1,8 +1,16 @@
 // Array para armazenar histórico
 let historico = [];
+let acabouDeCalcular = false; // Flag para limpar display após calcular
 
 function adicionarNumero(numero) {
     const display = document.getElementById('display');
+    
+    // Se acabou de calcular, limpa display para novo cálculo
+    if (acabouDeCalcular) {
+        display.value = '';
+        document.getElementById('expressao').textContent = '';
+        acabouDeCalcular = false;
+    }
     
     // Validação para o ponto decimal
     if (numero === '.') {
@@ -58,6 +66,11 @@ function calcular() {
             data: new Date()
         });
         
+        // Mantém apenas os últimos 20 cálculos
+        if (historico.length > 20) {
+            historico.shift(); // Remove o primeiro (mais antigo)
+        }
+        
         // Atualiza lista se modal estiver aberto
         if (document.getElementById('modal-historico').classList.contains('ativo')) {
             atualizarHistorico();
@@ -66,6 +79,8 @@ function calcular() {
         // Mostra a expressão em cima e o resultado embaixo
         expressaoDisplay.textContent = expressao;
         display.value = resultado;
+        
+        acabouDeCalcular = true; // Marca que acabou de calcular
         
     } catch (erro) {
         // Se houver erro (expressão inválida), mostra "Erro"
