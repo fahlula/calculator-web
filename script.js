@@ -3,9 +3,18 @@ function adicionarNumero(numero) {
     display.value = display.value + numero; 
 }
 
-function adicionarOperacao(operacao) {
+function adicionarOperacao(operacao){
     const display = document.getElementById('display');
-    display.value = display.value + operacao;
+    const ultimoCaractere = display.value[display.value.length - 1];
+
+    // Lista de operadores
+    const operadores = ['+', '-', '*', '/'];
+
+    // Não adiciona se display vazio OU último caractere for um operador
+    if(display.value === '' || operadores.includes(ultimoCaractere)){
+        return; // Sai da função sem fazer nada 
+    }
+    display.value += operacao; // Adiciona o operador ao display
 }
 
 function calcular() {
@@ -35,3 +44,4 @@ function porcentagem(){
         display.value = parseFloat(display.value) / 100; // parseFloat converte texto em número decimal
     }
 }
+
