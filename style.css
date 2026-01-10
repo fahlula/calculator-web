@@ -63,3 +63,14 @@ body {
     grid-column: span 3; /* Espandir botão em todas as colunas */
     background-color: #2196F3;
 }
+
+.botoes button.numero {
+    background-color: #5a5a5a;
+}
+
+.botoes button.limpar {
+    background-color: #f44336;
+}
+.botoes button.backspace {
+    background-color: #ff9800;  
+}
