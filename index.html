@@ -7,10 +7,15 @@
     <title>Calculadora</title>
     <link rel="stylesheet" href="CSS/base.css">
     <link rel="stylesheet" href="CSS/calculadora.css">
+    <link rel="stylesheet" href="CSS/historico.css">
 </head>
 
 <body>
     <div class="calculadora">
+        <div class="topo-calculadora">
+            <button class="btn-historico" onclick="abrirHistorico()">≡</button>
+        </div>
+        
         <div class="display-container">
             <div id="expressao"></div>
             <input type="text" id="display" readonly>
@@ -41,7 +46,19 @@
             <button class="igual" onclick="calcular()">=</button>
             
         </div>
-
+        
+    </div>
+    
+    <div id="modal-historico" class="modal-historico" onclick="fecharHistorico()">
+        <div class="painel-historico" onclick="event.stopPropagation()">
+            <div class="header-historico">
+                <span>Histórico</span>
+                <button class="btn-fechar-historico" onclick="fecharHistorico()">×</button>
+            </div>
+            <div id="lista-historico">
+                <p class="historico-vazio">Nenhum cálculo ainda</p>
+            </div>
+        </div>
     </div>
     
     <script src="script.js"></script>

@@ -1,4 +1,5 @@
-// Display duplo - não precisa mais de histórico separado
+// Array para armazenar histórico
+let historico = [];
 
 function adicionarNumero(numero) {
     const display = document.getElementById('display');
@@ -49,6 +50,18 @@ function calcular() {
         
         // eval() avalia a expressão matemática em texto
         const resultado = eval(expressao);
+        
+        // Adiciona ao histórico
+        historico.push({
+            expressao: expressao,
+            resultado: resultado,
+            data: new Date()
+        });
+        
+        // Atualiza lista se modal estiver aberto
+        if (document.getElementById('modal-historico').classList.contains('ativo')) {
+            atualizarHistorico();
+        }
         
         // Mostra a expressão em cima e o resultado embaixo
         expressaoDisplay.textContent = expressao;
@@ -112,3 +125,53 @@ document.addEventListener('keydown', function(event) {
         porcentagem();
     }
 });
+
+// ========== FUNÇÕES DO HISTÓRICO ==========
+
+function abrirHistorico() {
+    const modal = document.getElementById('modal-historico');
+    modal.classList.add('ativo');
+    atualizarHistorico();
+}
+
+function fecharHistorico() {
+    const modal = document.getElementById('modal-historico');
+    modal.classList.remove('ativo');
+}
+
+function atualizarHistorico() {
+    const lista = document.getElementById('lista-historico');
+    
+    if (historico.length === 0) {
+        lista.innerHTML = '<p class="historico-vazio">Nenhum cálculo ainda</p>';
+        return;
+    }
+    
+    lista.innerHTML = '';
+    
+    // Mostra os últimos 10 cálculos (mais recente primeiro)
+    const ultimos = historico.slice(-10).reverse();
+    
+    ultimos.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'item-historico';
+        div.onclick = () => carregarCalculo(item.resultado);
+        
+        div.innerHTML = `
+            <div class="expressao">${item.expressao}</div>
+            <div class="resultado">${item.resultado}</div>
+        `;
+        
+        lista.appendChild(div);
+    });
+}
+
+function carregarCalculo(resultado) {
+    const display = document.getElementById('display');
+    const expressaoDisplay = document.getElementById('expressao');
+    
+    display.value = resultado;
+    expressaoDisplay.textContent = '';
+    
+    fecharHistorico();
+}
