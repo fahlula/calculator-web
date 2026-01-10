@@ -1,6 +1,26 @@
 function adicionarNumero(numero) {
-    const display = document.getElementById('display'); // Obtém o elemento do display
-    display.value = display.value + numero; 
+    const display = document.getElementById('display');
+    
+    // Validação para o ponto decimal
+    if (numero === '.') {
+        const ultimoCaractere = display.value[display.value.length - 1];
+        
+        // Não permite ponto se último caractere já é ponto
+        if (ultimoCaractere === '.') {
+            return;
+        }
+        
+        // Pega o número atual (após o último operador)
+        const partes = display.value.split(/[\+\-\*\/]/);
+        const numeroAtual = partes[partes.length - 1];
+        
+        // Não permite ponto se número atual já tem ponto
+        if (numeroAtual.includes('.')) {
+            return;
+        }
+    }
+    
+    display.value = display.value + numero;
 }
 
 function adicionarOperacao(operacao){
