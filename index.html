@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/base.css">
+    <link rel="stylesheet" href="CSS/calculadora.css">
 </head>
 
 <body>
     <div class="calculadora">
-        <input type="text" id="display" readonly>
+        <div class="display-container">
+            <div id="expressao"></div>
+            <input type="text" id="display" readonly>
+        </div>
 
         <div class="botoes">
             <button class="numero" onclick="adicionarNumero('7')">7</button>
@@ -39,6 +43,7 @@
         </div>
 
     </div>
+    
     <script src="script.js"></script>
 </body>
 

@@ -1,3 +1,5 @@
+// Display duplo - não precisa mais de histórico separado
+
 function adicionarNumero(numero) {
     const display = document.getElementById('display');
     
@@ -39,12 +41,23 @@ function adicionarOperacao(operacao){
 
 function calcular() {
     const display = document.getElementById('display');
+    const expressaoDisplay = document.getElementById('expressao');
+
     try {
+        // Salva a expressão antes de calcular
+        const expressao = display.value;
+        
         // eval() avalia a expressão matemática em texto
-        display.value = eval(display.value);
+        const resultado = eval(expressao);
+        
+        // Mostra a expressão em cima e o resultado embaixo
+        expressaoDisplay.textContent = expressao;
+        display.value = resultado;
+        
     } catch (erro) {
         // Se houver erro (expressão inválida), mostra "Erro"
         display.value = 'Erro';
+        expressaoDisplay.textContent = '';
     }
 }
 
