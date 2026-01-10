@@ -60,7 +60,7 @@ body {
 
 /* Botão de igual destacado */
 .botoes button.igual {
-    grid-column: span 3; /* Espandir botão em todas as colunas */
+    grid-column: span 2; /* Espandir botão em todas as colunas */
     background-color: #2196F3;
 }
 
