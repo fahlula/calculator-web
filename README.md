@@ -108,23 +108,6 @@ Foco em usabilidade e experiência do usuário
 Desenvolvido por Fabiana
 🔗 GitHub: https://github.com/fahlula
 
----
 
-## 🧠 Avaliação final (sincera)
-Esse README está em **nível excelente para estágio/júnior**.  
-Ele mostra que você:
 
-- entende fundamentos  
-- sabe evoluir um projeto  
-- documenta bem  
-- pensa em UX  
-- tem maturidade técnica  
 
-👉 **Pode postar tranquila.**
-
-Se quiser, seguimos para:
-- `tic-tac-toe-js`
-- `crm-dashboard-php-mysql`
-- ou criar o **primeiro repo exclusivo em C**
-
-É só dizer 💙
