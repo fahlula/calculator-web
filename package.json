@@ -1,0 +1,17 @@
+{
+  "name": "calculator-web",
+  "version": "1.0.0",
+  "description": "Calculadora web estilo iPhone com versão terminal em C",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000",
+    "build:c": "gcc calculadora.c -o calculadora",
+    "start:c": "gcc calculadora.c -o calculadora && ./calculadora"
+  },
+  "keywords": ["calculator", "web", "javascript"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

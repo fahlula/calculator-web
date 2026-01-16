@@ -12,11 +12,19 @@ Calculadora web feita com HTML, CSS e JavaScript, inspirada no visual do iPhone.
 https://fahlula.github.io/calculator-web/
 
 ### Executar localmente
+
 ```bash
 git clone https://github.com/fahlula/calculator-web.git
 cd calculator-web
-http-server start
-````
+npm install
+npm start
+```
+
+### Calculadora em C (terminal)
+
+```bash
+npm run start:c
+```
 
 Desenvolvido por Fabiana
  
