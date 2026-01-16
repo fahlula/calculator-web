@@ -1,6 +1,6 @@
 # 🧮 Calculadora Web — Estilo iPhone
 
-Calculadora web feita com HTML, CSS e JavaScript, inspirada no visual do iPhone. O projeto começou em linguagem C e foi evoluindo para a versão web atual, com operações básicas, suporte ao teclado, histórico de cálculos e layout responsivo, focando em uma boa experiência de uso.
+Calculadora web feita com HTML, CSS e JavaScript, inspirada no visual do iPhone. O projeto começou em linguagem C e foi evoluindo para a versão web atual, com operações básicas, suporte ao teclado, histórico de cálculos e layout responsivo.
 
 ![Status](https://img.shields.io/badge/Status-Concluído-success)
 ![C](https://img.shields.io/badge/C-A8B9CC?logo=c&logoColor=black)
