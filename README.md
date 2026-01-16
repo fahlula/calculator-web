@@ -24,7 +24,7 @@ npm install
 npm start
 ```
 
-### Calculadora em C (terminal)
+### Calculadora em C 
 
 ```bash
 npm run start:c
